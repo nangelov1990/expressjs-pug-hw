@@ -1,0 +1,47 @@
+html
+    header
+    body
+        h1= title
+        #wrapper
+            #menu
+                each val in menuItems
+                    a.menuItem(href= val.url)= val.title
+            #data
+                h2= user.name
+                span= 'USERNAME: ' + user.username
+                br
+                h3 Add a car
+                form(method='POST', action='/users/' + user.username + '/car')
+                    input(
+                    type='text',
+                    name='make',
+                    placeholder='Car make'
+                    )
+                    br
+                    input(
+                    type='text',
+                    name='model',
+                    placeholder='Car model'
+                    )
+                    br
+                    textarea(
+                    name='description',
+                    placeholder='Car description'
+                    )
+                    br
+                    input(
+                    type='text',
+                    name='year',
+                    placeholder='Car year'
+                    )
+                    br
+                    input(
+                    type='submit'
+                    )
+                h3 Cars
+                ul
+                    each car in user.cars
+                        a(href='/cars/' + car._id)
+                            li= car.make + ' ' + car.model + ', ' + car.year
+                    else
+                        span='NO CARS YET'

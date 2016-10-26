@@ -1,0 +1,9 @@
+html
+    header
+    body
+        h1= title
+        #wrapper
+            #menu
+                each val in menuItems
+                    a.menuItem(href= val.url)= val.title
+            h3= message

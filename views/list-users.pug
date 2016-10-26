@@ -1,0 +1,17 @@
+html
+    header
+        body
+            h1= title
+            #wrapper
+                #menu
+                    each val in menuItems
+                        a.menuItem(href= val.url)= val.title
+                #data
+                    ul
+                        each user in users
+                            li
+                                a(href='/users/' + user.username)
+                                    h3= 'Name: ' + user.name
+                                h4= 'No. of cars: ' + user.cars.length
+                        else
+                            span= 'NO USERS YET'

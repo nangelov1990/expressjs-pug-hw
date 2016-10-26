@@ -1,0 +1,16 @@
+html
+    header
+        body
+            h1= title
+            #wrapper
+                #menu
+                    each val in menuItems
+                        a.menuItem(href= val.url)= val.title
+                #data
+                    ul
+                        each car in cars
+                            li
+                                a(href='/cars/' + car._id)
+                                    h3= car.make + ' ' + car.model
+                        else
+                            span= 'NO CARS YET'
